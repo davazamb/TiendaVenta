@@ -21,6 +21,7 @@
 			this.random = new Random();
 		}
 
+
 		public async Task SeedAsync()
 		{
 			await this.context.Database.EnsureCreatedAsync();
@@ -32,8 +33,8 @@
 				{
 					FirstName = "David",
 					LastName = "Zambrano",
-					Email = "david.zamrbrano10@gmail.com",
-					UserName = "david.zamrbrano10@gmail.com",
+					Email = "david.zambrano10@gmail.com",
+					UserName = "david.zambrano10@gmail.com",
 					PhoneNumber = "56990512688"
 				};
 
