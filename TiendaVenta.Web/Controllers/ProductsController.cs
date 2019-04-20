@@ -7,19 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TiendaVenta.Web.Data;
 using TiendaVenta.Web.Data.Entities;
+using TiendaVenta.Web.Helpers;
 
 namespace TiendaVenta.Web.Controllers
 {
     public class ProductsController : Controller
     {
 		private readonly IRepository repository;
+		private readonly IUserHelper userHelper;
 
-		//private readonly DataContext _context;
 
-		public ProductsController(IRepository repository)
+		public ProductsController(IRepository repository, IUserHelper userHelper)
         {
 			this.repository = repository;
-			//_context = context; 
+			this.userHelper = userHelper;
 		}
 
         // GET: Products
@@ -54,6 +55,8 @@ namespace TiendaVenta.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
+				//TODO: Change for the logged user
+				product.User = await this.userHelper.GetUserByEmailAsync("david.zambrano10@gmail.com");
 				this.repository.AddProduct(product);
 				await this.repository.SaveAllAsync();
 				return RedirectToAction(nameof(Index));

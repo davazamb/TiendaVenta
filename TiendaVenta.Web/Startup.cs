@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TiendaVenta.Web.Data;
 using TiendaVenta.Web.Data.Entities;
+using TiendaVenta.Web.Helpers;
 
 namespace TiendaVenta.Web
 {
@@ -48,6 +49,7 @@ namespace TiendaVenta.Web
 
 			services.AddTransient<SeedDb>();
 			services.AddScoped<IRepository, Repository>();
+			services.AddScoped<IUserHelper, UserHelper>();
 
 			services.Configure<CookiePolicyOptions>(options =>
             {
