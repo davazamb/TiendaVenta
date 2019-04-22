@@ -31,6 +31,20 @@ namespace TiendaVenta.Web.Data.Entities
 		[DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
 		public double Stock { get; set; }
 		public User User { get; set; }
+
+		public string ImageFullPath
+		{
+			get
+			{
+				if (string.IsNullOrEmpty(this.ImageUrl))
+				{
+					return null;
+				}
+
+				return $"http://dzambranob-001-site1.dtempurl.com{this.ImageUrl.Substring(1)}";
+			}
+		}
+
 	}
 
 }
