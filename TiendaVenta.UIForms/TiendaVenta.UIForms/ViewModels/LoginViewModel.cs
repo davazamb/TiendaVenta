@@ -14,6 +14,11 @@ namespace TiendaVenta.UIForms.ViewModels
 		public string Password { get; set; }
 
 		public ICommand LoginCommand => new RelayCommand(this.Login);
+		public LoginViewModel()
+		{
+			this.Email = "david.zambrano10@gmail.com";
+			this.Password = "123456";
+		}
 
 		private async void Login()
 		{
@@ -29,7 +34,7 @@ namespace TiendaVenta.UIForms.ViewModels
 				return;
 			}
 
-			if (!this.Email.Equals("jzuluaga55@gmail.com") || !this.Password.Equals("123456"))
+			if (!this.Email.Equals("david.zambrano10@gmail.com") || !this.Password.Equals("123456"))
 			{
 				await Application.Current.MainPage.DisplayAlert("Error", "Incorrect user or password", "Accept");
 				return;
