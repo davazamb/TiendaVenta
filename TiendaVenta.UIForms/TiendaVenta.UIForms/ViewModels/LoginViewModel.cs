@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using TiendaVenta.UIForms.Views;
 using Xamarin.Forms;
 
 namespace TiendaVenta.UIForms.ViewModels
@@ -40,7 +41,10 @@ namespace TiendaVenta.UIForms.ViewModels
 				return;
 			}
 
-			await Application.Current.MainPage.DisplayAlert("Ok", "Fuck yeah!!!", "Accept");
+			//await Application.Current.MainPage.DisplayAlert("Ok", "Fuck yeah!!!", "Accept");
+			MainViewModel.GetInstance().Products = new ProductsViewModel();
+			await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
+
 		}
 	}
 

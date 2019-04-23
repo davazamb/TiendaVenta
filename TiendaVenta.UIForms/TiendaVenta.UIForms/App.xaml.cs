@@ -1,4 +1,5 @@
 ﻿using System;
+using TiendaVenta.UIForms.ViewModels;
 using TiendaVenta.UIForms.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,6 +12,8 @@ namespace TiendaVenta.UIForms
 		public App()
 		{
 			InitializeComponent();
+
+			MainViewModel.GetInstance().Login = new LoginViewModel();
 
 			this.MainPage = new NavigationPage(new LoginPage());
 		}
