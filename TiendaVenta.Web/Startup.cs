@@ -74,8 +74,13 @@ namespace TiendaVenta.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+			services.ConfigureApplicationCookie(options =>
+			{
+				options.LoginPath = "/Account/NotAuthorized";
+				options.AccessDeniedPath = "/Account/NotAuthorized";
+			});
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,7 +96,8 @@ namespace TiendaVenta.Web
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+			app.UseStatusCodePagesWithReExecute("/error/{0}");
+			app.UseHttpsRedirection();
             app.UseStaticFiles();
 			app.UseAuthentication();
             app.UseCookiePolicy();

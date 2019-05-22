@@ -35,13 +35,13 @@ namespace TiendaVenta.Web.Controllers
 		{
 			if (id == null)
 			{
-				return NotFound();
+				return new NotFoundViewResult("ProductNotFound");
 			}
 
 			var product = await this.productRepository.GetByIdAsync(id.Value);
 			if (product == null)
 			{
-				return NotFound();
+				return new NotFoundViewResult("ProductNotFound");
 			}
 			return View(product);
 		}
@@ -108,13 +108,13 @@ namespace TiendaVenta.Web.Controllers
 		{
 			if (id == null)
 			{
-				return NotFound();
+				return new NotFoundViewResult("ProductNotFound");
 			}
 
 			var product = await this.productRepository.GetByIdAsync(id.Value);
 			if (product == null)
 			{
-				return NotFound();
+				return new NotFoundViewResult("ProductNotFound");
 			}
 
 			var view = this.ToProductViewModel(product);
@@ -191,13 +191,13 @@ namespace TiendaVenta.Web.Controllers
 		{
 			if (id == null)
 			{
-				return NotFound();
+				return new NotFoundViewResult("ProductNotFound");
 			}
 
 			var product = await this.productRepository.GetByIdAsync(id.Value);
 			if (product == null)
 			{
-				return NotFound();
+				return new NotFoundViewResult("ProductNotFound");
 			}
 
 			return View(product);
@@ -212,18 +212,22 @@ namespace TiendaVenta.Web.Controllers
 			await this.productRepository.DeleteAsync(product);
 			return RedirectToAction(nameof(Index));
 		}
-	
+
+		public IActionResult ProductNotFound()
+		{
+			return this.View();
+		}
 
 
 
-  //  public class ProductsController : Controller
-  //  {
+		//  public class ProductsController : Controller
+		//  {
 		//private readonly IProductRepository productRepository;
 		//private readonly IUserHelper userHelper;
 
 
 		//public ProductsController(IProductRepository productRepository, IUserHelper userHelper)
-  //      {
+		//      {
 		//	this.productRepository = productRepository;
 		//	this.userHelper = userHelper;
 		//}
@@ -365,7 +369,7 @@ namespace TiendaVenta.Web.Controllers
 		//					Directory.GetCurrentDirectory(),
 		//					"wwwroot\\images\\Products",
 		//					file);
-						
+
 		//				using (var stream = new FileStream(path, FileMode.Create))
 		//				{
 		//					await view.ImageFile.CopyToAsync(stream);
@@ -424,7 +428,7 @@ namespace TiendaVenta.Web.Controllers
 		//}
 
 
-		
+
 
 		//private bool ProductExists(int id)
 		//{
