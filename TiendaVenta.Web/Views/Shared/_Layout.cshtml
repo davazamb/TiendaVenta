@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Tienda</title>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
+	<environment include="Development">
+		<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+		<link href="~/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="~/css/site.css" />
+	</environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
@@ -28,14 +29,30 @@
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Tienda</a>
             </div>
-            <div class="navbar-collapse collapse">
+			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
 					<li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
 					<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-					<li><a asp-area="" asp-controller="Products" asp-action="Index">Products</a></li>
+					@if (this.User.Identity.IsAuthenticated)
+					{
+						<li><a asp-area="" asp-controller="Products" asp-action="Index">Products</a></li>
+					}
+
 				</ul>
-            </div>
+				<ul class="nav navbar-nav navbar-right">
+					@if (this.User.Identity.IsAuthenticated)
+					{
+						<li><a asp-area="" asp-controller="Account" asp-action="ChangeUser">@this.User.Identity.Name</a></li>
+						<li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+					}
+					else
+					{
+						<li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+					}
+				</ul>
+
+			</div>
         </div>
     </nav>
 

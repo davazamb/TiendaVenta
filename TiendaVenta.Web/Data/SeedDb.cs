@@ -1,14 +1,14 @@
 ﻿namespace TiendaVenta.Web.Data
 {
-    using Microsoft.AspNetCore.Identity;
-    using System;
+	using Microsoft.AspNetCore.Identity;
+	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Threading.Tasks;
 	using TiendaVenta.Web.Data.Entities;
-    using TiendaVenta.Web.Helpers;
+	using TiendaVenta.Web.Helpers;
 
-    public class SeedDb
+	public class SeedDb
 	{
 		private readonly DataContext context;
 		private readonly IUserHelper userHelper;
@@ -25,6 +25,8 @@
 		public async Task SeedAsync()
 		{
 			await this.context.Database.EnsureCreatedAsync();
+			await this.userHelper.CheckRoleAsync("Admin");
+			await this.userHelper.CheckRoleAsync("Customer");
 
 			var user = await this.userHelper.GetUserByEmailAsync("david.zambrano10@gmail.com");
 			if (user == null)
@@ -43,8 +45,14 @@
 				{
 					throw new InvalidOperationException("Could not create the user in seeder");
 				}
-			}
+				await this.userHelper.AddUserToRoleAsync(user, "Admin");
 
+			}
+			var isInRole = await this.userHelper.IsUserInRoleAsync(user, "Admin");
+			if (!isInRole)
+			{
+				await this.userHelper.AddUserToRoleAsync(user, "Admin");
+			}
 
 			if (!this.context.Products.Any())
 			{

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVenta.Common", "TiendaVenta.Common\TiendaVenta.Common.csproj", "{8D9D4025-FEC8-4887-A13A-A8DBAAE35A1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaVenta.Common", "TiendaVenta.Common\TiendaVenta.Common.csproj", "{8D9D4025-FEC8-4887-A13A-A8DBAAE35A1F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackEnd", "BackEnd", "{2DF3826C-281A-440A-B4BE-72127F199049}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{2CA367D7-E988-45C6-B25E-A6CF079517C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVenta.Web", "TiendaVenta.Web\TiendaVenta.Web.csproj", "{DF1A89D3-B402-4283-896C-05B046A25CB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaVenta.Web", "TiendaVenta.Web\TiendaVenta.Web.csproj", "{DF1A89D3-B402-4283-896C-05B046A25CB2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{72C0E252-2890-491A-9083-5C112E5D9741}"
 EndProject
@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVenta.UIForms.Android
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVenta.UIForms.iOS", "TiendaVenta.UIForms\TiendaVenta.UIForms.iOS\TiendaVenta.UIForms.iOS.csproj", "{CD66B508-94DD-4CAF-A45D-955AC9D8B6DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVenta.UIForms", "TiendaVenta.UIForms\TiendaVenta.UIForms\TiendaVenta.UIForms.csproj", "{7EB6D9C0-67B3-451F-AD81-C2329354492E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaVenta.UIForms", "TiendaVenta.UIForms\TiendaVenta.UIForms\TiendaVenta.UIForms.csproj", "{7EB6D9C0-67B3-451F-AD81-C2329354492E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVentaUIClassic", "TiendaVentaUIClassic\TiendaVentaUIClassic.csproj", "{3BCE7E81-7CBC-400D-ACC2-4D184BD199B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaVentaUIClassic", "TiendaVentaUIClassic\TiendaVentaUIClassic.csproj", "{3BCE7E81-7CBC-400D-ACC2-4D184BD199B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVenta.UIClassic.Android", "TiendaVenta.UIClassic.Android\TiendaVenta.UIClassic.Android.csproj", "{45E9DF3B-CA95-459D-9248-25EF51E5848E}"
 EndProject

@@ -8,6 +8,7 @@ namespace TiendaVenta.Web.Data
 {
 	public interface IProductRepository : IGenericRepository<Product>
 	{
+		IQueryable GetAllWithUsers();
 	}
 
 }
